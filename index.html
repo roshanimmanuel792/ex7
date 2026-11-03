@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarePlus - jQuery Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+
+<main class="main">
+
+  <header class="top">
+    <div class="brand">
+      <img src="logo.svg" alt="">
+      <span>CarePlus<small>Medical Appointment System</small></span>
+    </div>
+    <h1>Clinic admin desk</h1>
+    <p>Plan the clinic's monthly budget, bill the medicines prescribed at an appointment and fit out the home visit van, built with jQuery.</p>
+  </header>
+
+  <!-- 1. Budget calculator -->
+  <section class="tool" id="budget">
+    <div class="tool-info">
+      <h2>Clinic budget calculator</h2>
+      <p>Enter the monthly amount and how to split it. The four percentages must add up to 100%.</p>
+    </div>
+    <div class="tool-body">
+      <label for="amount">Enter Amount that you want to Manage</label>
+      <input type="text" id="amount" placeholder="10000">
+      <p class="label">How would you like to divide your money?</p>
+      <div class="grid-4">
+        <div><label for="rent">Room Rent (%)</label><input type="text" id="rent" placeholder="30"></div>
+        <div><label for="accessories">Accessories (%)</label><input type="text" id="accessories" placeholder="20"></div>
+        <div><label for="emergency">Emergency (%)</label><input type="text" id="emergency" placeholder="20"></div>
+        <div><label for="saving">Saving (%)</label><input type="text" id="saving" placeholder="30"></div>
+      </div>
+      <button class="btn" id="evaluate">Evaluate My Money</button>
+      <div class="readout">
+        <div><small>Room rent</small><span class="small" id="rentAmt">Rs.0</span></div>
+        <div><small>Accessories</small><span class="small" id="accAmt">Rs.0</span></div>
+        <div><small>Emergency</small><span class="small" id="emgAmt">Rs.0</span></div>
+        <div><small>Saving</small><span class="small" id="saveAmt">Rs.0</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Prescription order (Cake shop) -->
+  <section class="tool" id="prescription">
+    <div class="tool-info">
+      <h2>Prescription order</h2>
+      <p>After the appointment, enter how many of each prescribed item the patient needs and place the order to get the purchase bill.</p>
+    </div>
+    <div class="tool-body">
+      <div class="products">
+        <div class="product">
+          <img src="tablets.svg" alt="">
+          <label for="q1">Paracetamol strip</label>
+          <span class="price">Rs.40 each</span>
+          <input type="text" id="q1" class="qty" data-name="Paracetamol strip" data-price="40" placeholder="0">
+        </div>
+        <div class="product">
+          <img src="syrup.svg" alt="">
+          <label for="q2">Cough syrup</label>
+          <span class="price">Rs.120 each</span>
+          <input type="text" id="q2" class="qty" data-name="Cough syrup" data-price="120" placeholder="0">
+        </div>
+        <div class="product">
+          <img src="capsules.svg" alt="">
+          <label for="q3">Vitamin capsules</label>
+          <span class="price">Rs.250 each</span>
+          <input type="text" id="q3" class="qty" data-name="Vitamin capsules" data-price="250" placeholder="0">
+        </div>
+        <div class="product">
+          <img src="firstaid.svg" alt="">
+          <label for="q4">First aid kit</label>
+          <span class="price">Rs.450 each</span>
+          <input type="text" id="q4" class="qty" data-name="First aid kit" data-price="450" placeholder="0">
+        </div>
+      </div>
+      <button class="btn" id="placeOrder">Place Order</button>
+      <p class="empty" id="noOrder">No order placed yet.</p>
+      <div id="bill">
+        <table class="bill">
+          <thead><tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead>
+          <tbody id="billRows"></tbody>
+        </table>
+        <div class="readout">
+          <div><small>Purchase Order Bill: total price</small><span id="totalPrice">Rs.0</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Car body workshop -->
+  <section class="tool" id="workshop">
+    <div class="tool-info">
+      <h2>Home visit van workshop</h2>
+      <p>Change the body colour, the glass tint and the tyre size of the clinic's home visit van. Reset puts it back to standard.</p>
+    </div>
+    <div class="tool-body">
+      <div id="stage">
+        <div id="van">
+          <div id="siren"></div>
+          <div id="body"></div>
+          <div id="cab"></div>
+          <div class="glass" id="glass1"></div>
+          <div class="glass" id="glass2"></div>
+          <div id="stripe"></div>
+          <div class="plus" id="plus1"></div>
+          <div class="plus" id="plus2"></div>
+          <div class="tyre" id="tyre1"></div>
+          <div class="tyre" id="tyre2"></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="glassBtn">Change Glass Color</button>
+        <button class="btn" id="bodyBtn">Change Body Color</button>
+        <button class="btn" id="tyreUp">Tyre Size Increase</button>
+        <button class="btn" id="tyreDown">Tyre Size Decrease</button>
+        <button class="btn btn-ghost" id="resetBtn">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">CarePlus, Medical Appointment System</footer>
+</main>
+
+</body>
+</html>
